@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23111%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <a class="icon-btn" id="pd-back-btn" href="shop.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <h1>Product Detail</h1>
+    <span class="icon-btn placeholder"></span>
+  </div>
+
+  <div class="content" id="product-detail">
+    <div class="detail-thumb" id="pd-thumb"></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+      <div>
+        <div class="detail-name" id="pd-name">—</div>
+        <div class="detail-price" id="pd-price">—</div>
+      </div>
+      <button class="heart-btn" type="button" aria-label="Save to wishlist" style="width:36px; height:36px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+    </div>
+
+    <div class="detail-cat" id="pd-cat">—</div>
+    <p class="detail-desc" id="pd-desc"></p>
+
+    <a class="btn btn-primary" id="pd-tryon-btn" href="tryon.html">✨ Try It On</a>
+
+    <div class="section-header"><h3>You May Also Like</h3></div>
+    <div class="product-grid" id="pd-related"></div>
+  </div>
+
+  <div class="bottom-nav">
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a class="nav-item" href="shop.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span class="nav-label">Search</span>
+    </a>
+    <a class="nav-item" href="wishlist.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      <span class="nav-label">Wishlist</span>
+    </a>
+    <a class="nav-item" href="profile.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <span class="nav-label">Profile</span>
+    </a>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

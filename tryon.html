@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try On — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23111%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <a class="icon-btn" id="tryon-back-btn" href="shop.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <h1>Try On</h1>
+    <span class="icon-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>
+    </span>
+  </div>
+
+  <div class="content" id="tryon-page">
+    <div class="tryon-banner">
+      <div class="thumb" id="tryon-thumb"></div>
+      <div>
+        <div class="label">Try-on</div>
+        <div class="name" id="tryon-subtitle">Trying on: —</div>
+      </div>
+    </div>
+
+    <!-- ===== Fashion try-on ===== -->
+    <section class="tryon-section" data-cat="fashion" hidden>
+      <label class="form-label">Upload Your Photo</label>
+      <div class="upload-row">
+        <div class="upload-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span class="upload-label">Take Photo</span>
+        </div>
+        <div class="upload-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span class="upload-label">Upload Photo</span>
+        </div>
+      </div>
+
+      <label class="form-label">Your Body Information</label>
+      <div class="form-group">
+        <label class="form-label" style="font-size:11px;">Height (cm)</label>
+        <input class="form-input" type="number" placeholder="e.g. 160" min="120" max="210">
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="font-size:11px;">Weight (kg)</label>
+        <input class="form-input" type="number" placeholder="e.g. 55" min="30" max="150">
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="font-size:11px;">Body Shape</label>
+        <select class="form-select">
+          <option value="">Select</option>
+          <option>Hourglass</option>
+          <option>Pear</option>
+          <option>Apple</option>
+          <option>Rectangle</option>
+          <option>Inverted Triangle</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="font-size:11px;">Gender</label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="gender" checked> Female</label>
+          <label class="radio-label"><input type="radio" name="gender"> Male</label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="button" data-analyze="fashion-result">Start Analysis</button>
+
+      <div class="result-panel" id="fashion-result" hidden>
+        <div class="title">✨ Analysis Result</div>
+        <div class="result-photo"><img src="img/result-dress.jpeg" alt="Hasil try-on pakaian"></div>
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="result-label">Match Score</div>
+            <div class="result-value">94%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Recommended Size</div>
+            <div class="result-value">M</div>
+          </div>
+        </div>
+        <div class="btn-row two">
+          <button class="btn btn-outline" type="button" data-analyze="fashion-result">Try Another</button>
+          <a class="btn btn-primary" id="tryon-add-look" href="mixmatch.html">Add to My Look</a>
+        </div>
+      </div>
+
+      <div class="info-banner">
+        <div class="icon-circle">👗</div>
+        <div class="info-text">
+          <h4>We'll recommend the best size and outfit that suits your body shape.</h4>
+          <p>Accurate. Personalized. Just for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Makeup try-on ===== -->
+    <section class="tryon-section" data-cat="makeup" hidden>
+      <div class="camera-box">
+        <img class="camera-result-img" src="img/result-makeup.jpeg" alt="Hasil try-on makeup">
+        <div class="camera-overlay-guide"></div>
+      </div>
+
+      <label class="form-label">Choose Category</label>
+      <div class="pill-row" data-group="category">
+        <div class="pill active" data-item>Lipstick</div>
+        <div class="pill" data-item>Foundation</div>
+        <div class="pill" data-item>Blush</div>
+        <div class="pill" data-item>Eyeshadow</div>
+        <div class="pill" data-item>Eyeliner</div>
+      </div>
+
+      <label class="form-label">Choose Shade</label>
+      <div class="shade-grid" data-group="shade">
+        <div class="shade-box active" data-item data-shade-hex="#c9776b" data-shade-name="Coral Nude" style="background:#c9776b;"></div>
+        <div class="shade-box" data-item data-shade-hex="#b56576" data-shade-name="Rosy Mauve" style="background:#b56576;"></div>
+        <div class="shade-box" data-item data-shade-hex="#a4133c" data-shade-name="Classic Red" style="background:#a4133c;"></div>
+        <div class="shade-box" data-item data-shade-hex="#b5651d" data-shade-name="Terracotta" style="background:#b5651d;"></div>
+        <div class="shade-box" data-item data-shade-hex="#e8a0a0" data-shade-name="Soft Pink" style="background:#e8a0a0;"></div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-card">
+          <div class="score-label">Match Score</div>
+          <div class="score-value">95%</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Recommended Shade</div>
+          <div class="shade-match">
+            <div class="shade-dot" data-shade-dot="shade" style="background:#c9776b;"></div>
+            <div class="shade-name" data-shade-name="shade">Coral Nude</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row two">
+        <button class="btn btn-outline" type="button" data-toast="Look saved to History ✓">Save Look</button>
+        <button class="btn btn-primary" type="button" data-toast="Added to cart ✓">Buy Now</button>
+      </div>
+    </section>
+
+    <!-- ===== Accessories try-on ===== -->
+    <section class="tryon-section" data-cat="accessories" hidden>
+      <div class="camera-box">
+        <img class="camera-result-img" src="img/result-dress.jpeg" alt="Hasil try-on aksesori">
+        <div class="camera-overlay-guide"></div>
+      </div>
+
+      <label class="form-label">Choose Category</label>
+      <div class="acc-cat-grid" data-group="acc-category">
+        <div class="acc-cat-item active" data-item><span class="emoji">🕶️</span><span>Glasses</span></div>
+        <div class="acc-cat-item" data-item><span class="emoji">⌚</span><span>Watch</span></div>
+        <div class="acc-cat-item" data-item><span class="emoji">📿</span><span>Necklace</span></div>
+        <div class="acc-cat-item" data-item><span class="emoji">💎</span><span>Earrings</span></div>
+        <div class="acc-cat-item" data-item><span class="emoji">👜</span><span>Bag</span></div>
+      </div>
+
+      <div class="wide-score-card">
+        <div class="wide-score-left">
+          <div class="score-label">Match Score</div>
+          <div class="score-value">92%</div>
+        </div>
+        <div class="wide-score-right">This accessory matches your style perfectly!</div>
+      </div>
+
+      <div class="btn-row two">
+        <button class="btn btn-outline" type="button" data-toast="Look saved to History ✓">Save Look</button>
+        <button class="btn btn-primary" type="button" data-toast="Added to cart ✓">Buy Now</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottom-nav">
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a class="nav-item" href="shop.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span class="nav-label">Search</span>
+    </a>
+    <a class="nav-item" href="wishlist.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      <span class="nav-label">Wishlist</span>
+    </a>
+    <a class="nav-item" href="profile.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <span class="nav-label">Profile</span>
+    </a>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mix & Match — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23111%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <a class="icon-btn" href="wishlist.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <h1>Mix & Match</h1>
+    <span class="icon-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>
+    </span>
+  </div>
+
+  <div class="content">
+    <div class="mix-container">
+      <div>
+        <label class="form-label" style="font-size:11px;">Your Look</label>
+        <div class="look-view">
+          <div class="arrow-btn arrow-left" data-toast="Weekend Casual look">&lt;</div>
+          <div class="look-canvas">
+            <div class="strip" style="background:#3a3a3a33;">🧥</div>
+            <div class="strip" style="background:#4a4a4a33;">👖</div>
+            <div class="strip" style="background:#9c846533;">👜</div>
+          </div>
+          <div class="arrow-btn arrow-right" data-toast="Photoshoot Glam look">&gt;</div>
+          <div class="look-name">Office Chic</div>
+          <button class="btn-view-items" type="button" data-toast="5 items in this look">View All Items</button>
+        </div>
+      </div>
+      <div>
+        <label class="form-label" style="font-size:11px;">Items in Your Look</label>
+        <div class="items-list">
+          <div class="list-item-row">
+            <div class="list-item-thumb" style="background:#3a3a3a33;">🧥</div>
+            <div class="list-item-details"><div class="list-item-name">Oversized Blazer</div><div class="list-item-price">Rp 399.000</div></div>
+            <button class="list-item-remove" type="button">✕</button>
+          </div>
+          <div class="list-item-row">
+            <div class="list-item-thumb" style="background:#7c6a5833;">👘</div>
+            <div class="list-item-details"><div class="list-item-name">Pleated Skirt</div><div class="list-item-price">Rp 249.000</div></div>
+            <button class="list-item-remove" type="button">✕</button>
+          </div>
+          <div class="list-item-row">
+            <div class="list-item-thumb" style="background:#9c846533;">👜</div>
+            <div class="list-item-details"><div class="list-item-name">Shoulder Bag</div><div class="list-item-price">Rp 199.000</div></div>
+            <button class="list-item-remove" type="button">✕</button>
+          </div>
+          <div class="list-item-row">
+            <div class="list-item-thumb" style="background:#f2f2f233;">👟</div>
+            <div class="list-item-details"><div class="list-item-name">White Sneakers</div><div class="list-item-price">Rp 299.000</div></div>
+            <button class="list-item-remove" type="button">✕</button>
+          </div>
+          <div class="list-item-row">
+            <div class="list-item-thumb" style="background:#c9776b33;">💄</div>
+            <div class="list-item-details"><div class="list-item-name">Lipstick Coral Nude</div><div class="list-item-price">Rp 149.000</div></div>
+            <button class="list-item-remove" type="button">✕</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mix-score-row">
+      <div class="style-score-box">
+        <div class="score-label">Your Style Score</div>
+        <div class="score-value" style="font-size:18px;">96%</div>
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:96%;"></div></div>
+      </div>
+      <div class="perfect-box">
+        <div class="score-label">Perfect For</div>
+        <div class="tag-grid">
+          <div class="tag-pill">Office</div>
+          <div class="tag-pill">Meeting</div>
+          <div class="tag-pill">Dinner</div>
+          <div class="tag-pill">Casual</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row three">
+      <button class="btn btn-primary" type="button" data-toast="All items added to cart ✓">Buy All Items</button>
+      <button class="btn btn-outline" type="button" data-toast="Look saved to Wishlist ✓">Save to Wishlist</button>
+      <button class="btn btn-outline" type="button" data-toast="Link copied to clipboard ✓">Share Look</button>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <span class="nav-label">Home</span>
+    </a>
+    <a class="nav-item" href="shop.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span class="nav-label">Search</span>
+    </a>
+    <a class="nav-item" href="wishlist.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      <span class="nav-label">Wishlist</span>
+    </a>
+    <a class="nav-item" href="profile.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      <span class="nav-label">Profile</span>
+    </a>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
