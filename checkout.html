@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23e2725b%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <a class="icon-btn" href="mixmatch.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <h1>Checkout</h1>
+    <span class="icon-btn placeholder"></span>
+  </div>
+
+  <div class="content" id="checkout-page">
+    <div class="section-header" style="margin-top:0;"><h3>Ringkasan Pesanan</h3></div>
+    <div class="order-items" id="order-items"></div>
+
+    <div class="summary-box">
+      <div class="summary-row"><span>Subtotal</span><span id="checkout-subtotal">Rp 0</span></div>
+      <div class="summary-row"><span>Ongkos Kirim</span><span>Rp 15.000</span></div>
+      <div class="summary-row total"><span>Total</span><span id="checkout-total">Rp 0</span></div>
+    </div>
+
+    <div class="section-header" style="margin-top:0;"><h3>Metode Pembayaran</h3></div>
+    <div class="payment-list" id="payment-list" data-group="payment">
+      <label class="payment-item active" data-item data-method="E-Wallet (GoPay/OVO/DANA)">
+        <span class="payment-icon">📱</span>
+        <span class="payment-label">E-Wallet (GoPay/OVO/DANA)</span>
+        <input type="radio" name="payment" checked>
+      </label>
+      <label class="payment-item" data-item data-method="PayLater">
+        <span class="payment-icon">🕒</span>
+        <span class="payment-label">PayLater</span>
+        <input type="radio" name="payment">
+      </label>
+      <label class="payment-item" data-item data-method="Transfer Bank">
+        <span class="payment-icon">🏦</span>
+        <span class="payment-label">Transfer Bank</span>
+        <input type="radio" name="payment">
+      </label>
+    </div>
+
+    <button class="btn btn-primary" type="button" id="place-order-btn">Place Order</button>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

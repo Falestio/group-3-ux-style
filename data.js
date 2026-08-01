@@ -19,6 +19,17 @@ const PRODUCTS = [
 
 const CATEGORY_LABEL = { fashion:'Fashion', makeup:'Makeup', accessories:'Accessories' };
 
+// Static example "look" — mirrors the items shown on mixmatch.html — used when
+// checkout is entered via "Buy All Items" instead of a single product.
+const DEMO_LOOK = [
+  { name:'Oversized Blazer',    price:399000, emoji:'🧥', color:'#3a3a3a' },
+  { name:'Pleated Skirt',       price:249000, emoji:'👘', color:'#7c6a58' },
+  { name:'Shoulder Bag',        price:199000, emoji:'👜', color:'#6b5b48' },
+  { name:'White Sneakers',      price:299000, emoji:'👟', color:'#f2f2f2' },
+  { name:'Coral Nude Lipstick', price:149000, emoji:'💄', color:'#c9776b' },
+];
+const SHIPPING_FEE = 15000;
+
 function getProduct(id) {
   return PRODUCTS.find(p => p.id === id);
 }
@@ -27,4 +38,13 @@ function formatPrice(n) {
 }
 function getQueryParam(name) {
   return new URLSearchParams(window.location.search).get(name);
+}
+// Resolves the order.html / order-confirmation.html query params (?type=item&id=..
+// or ?type=look) into a list of {name, price, emoji, color} line items.
+function resolveOrderItems() {
+  if (getQueryParam('type') === 'item') {
+    const p = getProduct(getQueryParam('id'));
+    return p ? [p] : DEMO_LOOK;
+  }
+  return DEMO_LOOK;
 }

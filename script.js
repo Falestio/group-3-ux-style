@@ -15,6 +15,16 @@ function productCardHTML(p) {
   </a>`;
 }
 
+function orderItemRowHTML(i) {
+  return `<div class="list-item-row">
+    <div class="list-item-thumb" style="background:${i.color}33;">${i.emoji}</div>
+    <div class="list-item-details">
+      <div class="list-item-name">${i.name}</div>
+      <div class="list-item-price">${formatPrice(i.price)}</div>
+    </div>
+  </div>`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Home: recommended products ---------- */
@@ -97,6 +107,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lookLink = document.getElementById('tryon-add-look');
     if (lookLink) lookLink.href = 'mixmatch.html?added=' + product.id;
+
+    document.querySelectorAll('.tryon-buy-now').forEach(btn => {
+      btn.href = 'checkout.html?type=item&id=' + product.id;
+    });
+  }
+
+  /* ---------- Checkout ---------- */
+  const checkoutPage = document.getElementById('checkout-page');
+  if (checkoutPage && typeof PRODUCTS !== 'undefined') {
+    const items = resolveOrderItems();
+    const itemsEl = document.getElementById('order-items');
+    if (itemsEl) itemsEl.innerHTML = items.map(orderItemRowHTML).join('');
+
+    const subtotal = items.reduce((sum, i) => sum + i.price, 0);
+    const total = subtotal + SHIPPING_FEE;
+    const subtotalEl = document.getElementById('checkout-subtotal');
+    const totalEl = document.getElementById('checkout-total');
+    if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+    if (totalEl) totalEl.textContent = formatPrice(total);
+
+    const placeOrderBtn = document.getElementById('place-order-btn');
+    if (placeOrderBtn) {
+      placeOrderBtn.addEventListener('click', () => {
+        const activePayment = document.querySelector('#payment-list [data-item].active');
+        const method = activePayment ? activePayment.dataset.method : 'E-Wallet';
+        const params = new URLSearchParams(window.location.search);
+        params.set('method', method);
+        window.location.href = 'order-confirmation.html?' + params.toString();
+      });
+    }
+  }
+
+  /* ---------- Order confirmation ---------- */
+  const confirmPage = document.getElementById('confirm-page');
+  if (confirmPage && typeof PRODUCTS !== 'undefined') {
+    const items = resolveOrderItems();
+    const itemsEl = document.getElementById('confirm-items');
+    if (itemsEl) itemsEl.innerHTML = items.map(orderItemRowHTML).join('');
+
+    const subtotal = items.reduce((sum, i) => sum + i.price, 0);
+    const totalEl = document.getElementById('confirm-total');
+    if (totalEl) totalEl.textContent = formatPrice(subtotal + SHIPPING_FEE);
+
+    const methodEl = document.getElementById('confirm-method');
+    if (methodEl) methodEl.textContent = getQueryParam('method') || 'E-Wallet';
+
+    const orderIdEl = document.getElementById('confirm-order-id');
+    if (orderIdEl) orderIdEl.textContent = 'Order ID: STY-' + Math.floor(100000 + Math.random() * 900000);
+
+    const deliveryEl = document.getElementById('confirm-delivery');
+    if (deliveryEl) {
+      const d = new Date();
+      d.setDate(d.getDate() + 3);
+      deliveryEl.textContent = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+  }
+
+  /* ---------- Admin dashboard ---------- */
+  const adminProductList = document.getElementById('admin-product-list');
+  if (adminProductList && typeof PRODUCTS !== 'undefined') {
+    adminProductList.innerHTML = PRODUCTS.map(p => `
+      <div class="admin-product-row">
+        <div class="admin-product-thumb" style="background:${p.color}22;">${p.emoji}</div>
+        <div class="admin-product-info">
+          <div class="admin-product-name">${p.name}</div>
+          <div class="admin-product-meta">${CATEGORY_LABEL[p.category]}</div>
+        </div>
+        <div class="admin-product-price">${formatPrice(p.price)}</div>
+      </div>`).join('');
+    const statTotal = document.getElementById('stat-total-produk');
+    if (statTotal) statTotal.textContent = PRODUCTS.length;
+  }
+
+  /* ---------- Admin login (demo — no real auth) ---------- */
+  const adminLoginForm = document.getElementById('admin-login-form');
+  if (adminLoginForm) {
+    adminLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = 'admin-dashboard.html';
+    });
+  }
+
+  /* ---------- Admin add product (demo — nothing is actually persisted) ---------- */
+  const adminAddForm = document.getElementById('admin-add-form');
+  if (adminAddForm) {
+    adminAddForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Produk berhasil dipublikasikan ✓');
+      setTimeout(() => { window.location.href = 'admin-dashboard.html'; }, 900);
+    });
   }
 
   /* ---------- Exclusive toggle groups: pills, category tiles, shade swatches, tabs ---------- */

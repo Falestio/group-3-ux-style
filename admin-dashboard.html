@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23e2725b%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <span class="icon-btn placeholder"></span>
+    <h1>Admin Dashboard</h1>
+    <a class="icon-btn" href="admin-login.html" aria-label="Logout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </a>
+  </div>
+
+  <div class="content">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total-produk">—</div>
+        <div class="stat-label">Total Produk</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Perlu Restock</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">452</div>
+        <div class="stat-label">Try-On Minggu Ini</div>
+      </div>
+    </div>
+
+    <a class="btn btn-primary" href="admin-add-product.html" style="margin-bottom:20px;">+ Tambah Produk Baru</a>
+
+    <div class="section-header" style="margin-top:0;"><h3>Produk Terpopuler (Try-On)</h3></div>
+    <div class="rank-list">
+      <div class="rank-row">
+        <div class="rank-num">1</div>
+        <div class="rank-name">Korean Blazer</div>
+        <div class="rank-count">128x try-on</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">2</div>
+        <div class="rank-name">Coral Nude Lipstick</div>
+        <div class="rank-count">104x try-on</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-num">3</div>
+        <div class="rank-name">Classic Watch</div>
+        <div class="rank-count">89x try-on</div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:0;"><h3>Semua Produk</h3></div>
+    <div id="admin-product-list"></div>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

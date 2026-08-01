@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesanan Dikonfirmasi — STYLE</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23e2725b%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22sans-serif%22 font-weight=%22800%22>S</text></svg>">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="app-header">
+    <span class="icon-btn placeholder"></span>
+    <h1>Pesanan</h1>
+    <span class="icon-btn placeholder"></span>
+  </div>
+
+  <div class="content" id="confirm-page">
+    <div class="confirm-hero">
+      <div class="confirm-icon">✓</div>
+      <h2>Pesanan Dikonfirmasi!</h2>
+      <p>Terima kasih, pesananmu sedang diproses.</p>
+    </div>
+
+    <div class="order-id" id="confirm-order-id">Order ID: —</div>
+
+    <div class="section-header" style="margin-top:0;"><h3>Item Dibeli</h3></div>
+    <div class="order-items" id="confirm-items"></div>
+
+    <div class="summary-box">
+      <div class="summary-row"><span>Total Pembayaran</span><span id="confirm-total">Rp 0</span></div>
+      <div class="summary-row"><span>Metode Pembayaran</span><span id="confirm-method">—</span></div>
+      <div class="summary-row"><span>Estimasi Tiba</span><span id="confirm-delivery">—</span></div>
+    </div>
+
+    <div class="btn-row two">
+      <a class="btn btn-outline" href="wishlist.html">Lihat Pesanan Saya</a>
+      <a class="btn btn-primary" href="index.html">Kembali ke Beranda</a>
+    </div>
+  </div>
+
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
